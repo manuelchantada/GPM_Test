@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Model
 {
-    public class Shape : ICollidable
+    public class Figure : ICollidable
     {
         protected Coordinate[] Nodes;
         public Coordinate[] GetNodes()
