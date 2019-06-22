@@ -3,9 +3,15 @@ using Model;
 
 namespace CollisionCalcTests
 {
-    public enum Z { Top = 1, Bottom = -1, Aligned = 0, TopEdge = 2, BottomEdge = -2 }
-    public enum Y { Right = 1, Left = -1, Aligned = 0, RightEdge = 2, LeftEdge = -2 }
-    public enum X { Front = 1, Back = -1, Aligned = 0, FrontEdge = 2, BackEdge = -2 }
+    public enum Z {
+        Top = 1, Bottom = -1, Aligned = 0, TopEdge = 2, BottomEdge = -2, Appart = 4
+    }
+    public enum Y {
+        Right = 1, Left = -1, Aligned = 0, RightEdge = 2, LeftEdge = -2, Appart = 4
+    }
+    public enum X {
+        Front = 1, Back = -1, Aligned = 0, FrontEdge = 2, BackEdge = -2, Appart = 4
+    }
 
     [TestClass]
     public class CollidingCubesCollide
@@ -124,14 +130,73 @@ namespace CollisionCalcTests
             float colidedVolume = calc.CollidedVolume();
             Assert.AreEqual(expectedVolume, colidedVolume, testName);
         }
+        [DataTestMethod]
+        [DataRow(0, 0, 0, 2, X.Aligned, Y.Aligned, Z.Aligned, 2, 8, "Overlaping")]
+        public void CubesOverlapingCollide(int x, int y, int z, int height,
+            X a, Y b, Z c, int height2, int expectedVolume, string test)
+        {
+            string testName = $"{a.ToString()} {b.ToString()} {c.ToString()} {test}";
+            Cube A = new Cube(new Coordinate(x, y, z), height);
+            Cube B = new Cube(new Coordinate((int)a, (int)b, (int)c), height2);
+            CollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
+            float colidedVolume = calc.CollidedVolume();
+            Assert.AreEqual(expectedVolume, colidedVolume, testName);
+        }
+
     }
 
     [TestClass]
     public class NotCollidingCubesDontCollide
     {
-        [TestMethod]
-        public void TestMethod1()
+        [DataTestMethod]
+        [DataRow(0, 0, 0, 2, X.FrontEdge, Y.RightEdge, Z.TopEdge, 2, 0, "Shared Edge")]
+        [DataRow(0, 0, 0, 2, X.FrontEdge, Y.RightEdge, Z.BottomEdge, 2, 0, "Shared Edge")]
+        [DataRow(0, 0, 0, 2, X.FrontEdge, Y.LeftEdge, Z.TopEdge, 2, 0, "Shared Edge")]
+        [DataRow(0, 0, 0, 2, X.FrontEdge, Y.LeftEdge, Z.BottomEdge, 2, 0, "Shared Edge")]
+        [DataRow(0, 0, 0, 2, X.BackEdge, Y.RightEdge, Z.TopEdge, 2, 0, "Shared Edge")]
+        [DataRow(0, 0, 0, 2, X.BackEdge, Y.RightEdge, Z.BottomEdge, 2, 0, "Shared Edge")]
+        [DataRow(0, 0, 0, 2, X.BackEdge, Y.LeftEdge, Z.TopEdge, 2, 0, "Shared Edge")]
+        [DataRow(0, 0, 0, 2, X.BackEdge, Y.LeftEdge, Z.BottomEdge, 2, 0, "Shared Edge")]
+        public void CubesNotCollidingSharingEdgeDontCollide(int x, int y, int z, int height,
+            X a, Y b, Z c, int height2, int expectedVolume, string test)
         {
+            string testName = $"{a.ToString()} {b.ToString()} {c.ToString()} {test}";
+            Cube A = new Cube(new Coordinate(x, y, z), height);
+            Cube B = new Cube(new Coordinate((int)a, (int)b, (int)c), height2);
+            CollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
+            float colidedVolume = calc.CollidedVolume();
+            Assert.AreEqual(expectedVolume, colidedVolume, testName);
+        }
+
+        [DataTestMethod]
+        [DataRow(0, 0, 0, 2, X.Aligned, Y.Aligned, Z.TopEdge, 2, 0, "Shared Side")]
+        [DataRow(0, 0, 0, 2, X.Aligned, Y.Aligned, Z.BottomEdge, 2, 0, "Shared Side")]
+        [DataRow(0, 0, 0, 2, X.Aligned, Y.RightEdge, Z.Aligned, 2, 0, "Shared Side")]
+        [DataRow(0, 0, 0, 2, X.Aligned, Y.LeftEdge, Z.Aligned, 2, 0, "Shared Side")]
+        [DataRow(0, 0, 0, 2, X.FrontEdge, Y.Aligned, Z.Aligned, 2, 0, "Shared Side")]
+        [DataRow(0, 0, 0, 2, X.BackEdge, Y.Aligned, Z.Aligned, 2, 0, "Shared Side")]
+        public void CubesNotCollidingSharingSideDontCollide(int x, int y, int z, int height,
+            X a, Y b, Z c, int height2, int expectedVolume, string test)
+        {
+            string testName = $"{a.ToString()} {b.ToString()} {c.ToString()} {test}";
+            Cube A = new Cube(new Coordinate(x, y, z), height);
+            Cube B = new Cube(new Coordinate((int)a, (int)b, (int)c), height2);
+            CollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
+            float colidedVolume = calc.CollidedVolume();
+            Assert.AreEqual(expectedVolume, colidedVolume, testName);
+        }
+
+        [DataTestMethod]
+        [DataRow(0, 0, 0, 2, X.Appart, Y.Appart, Z.Appart, 2, 0, "Test")]
+        public void CubesAppartDontCollide(int x, int y, int z, int height,
+            X a, Y b, Z c, int height2, int expectedVolume, string test)
+        {
+            string testName = $"{a.ToString()} {b.ToString()} {c.ToString()} {test}";
+            Cube A = new Cube(new Coordinate(x, y, z), height);
+            Cube B = new Cube(new Coordinate((int)a, (int)b, (int)c), height2);
+            CollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
+            float colidedVolume = calc.CollidedVolume();
+            Assert.AreEqual(expectedVolume, colidedVolume, testName);
         }
     }
 }
