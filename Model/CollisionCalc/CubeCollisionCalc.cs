@@ -21,9 +21,9 @@ namespace Model
             Coordinate BLBB = B.GetNodes()[(int)Cube.Edges.LeftBottomBack];
             Coordinate BRTF = B.GetNodes()[(int)Cube.Edges.RightTopFront];
 
-            return Math.Max( Math.Min(ARTF.X, BRTF.X) - Math.Max(ALBB.X, BLBB.X), 0 )
-                * Math.Max( Math.Min(ARTF.Y, BRTF.Y) - Math.Max(ALBB.Y, BLBB.Y), 0 )
-                * Math.Max( Math.Min(ARTF.Z, BRTF.Z) - Math.Max(ALBB.Z, BLBB.Z), 0 );
+            return Math.Max( Coordinate.minXof(ARTF, BRTF) - Coordinate.maxXof(ALBB, BLBB), 0 )
+                * Math.Max(Coordinate.minYof(ARTF, BRTF) - Coordinate.maxYof(ALBB, BLBB), 0 )
+                * Math.Max( Coordinate.minZof(ARTF, BRTF) - Coordinate.maxZof(ALBB, BLBB), 0 );
         }
     }
 }

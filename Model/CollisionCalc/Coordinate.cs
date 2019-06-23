@@ -31,5 +31,29 @@ namespace Model
             return A.Equals(B);
         }
 
+        public static float minXof(Coordinate a, Coordinate b)
+        {
+            return a.X <= b.X ? a.X : b.X;
+        }
+        public static float maxXof(Coordinate a, Coordinate b)
+        {
+            return a.X >= b.X ? a.X : b.X;
+        }
+        public static float minYof(Coordinate a, Coordinate b)
+        {
+            return a.Y <= b.Y ? a.Y : b.Y;
+        }
+        public static float maxYof(Coordinate a, Coordinate b)
+        {
+            return a.Y >= b.Y ? a.Y : b.Y;
+        }
+        public static float minZof(Coordinate a, Coordinate b)
+        {
+            return a.Z <= b.Z ? a.Z : b.Z;
+        }
+        public static float maxZof(Coordinate a, Coordinate b)
+        {
+            return a.Z >= b.Z ? a.Z : b.Z;
+        }
     }
 }
