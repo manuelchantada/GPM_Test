@@ -5,10 +5,6 @@ namespace Model
     {
         protected Coordinate Center;
 
-        public enum Edges{
-            LeftBottomBack,
-            RightTopFront
-        }
         public Cube(Coordinate center, float height)  {
             Center = center;
             float halfHeight = height / 2;
