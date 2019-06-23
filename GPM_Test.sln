@@ -12,7 +12,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{3F923B32-DA40-47DF-8B47-B7FD90D4C59F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollisionCalc.Tests", "CollisionCalcTests\CollisionCalc.Tests.csproj", "{AFC1DBCE-FF3A-4ED3-9B0D-74863E1B3C43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollisionCalc.Tests", "CollisionCalcTests\CollisionCalc.Tests.csproj", "{AFC1DBCE-FF3A-4ED3-9B0D-74863E1B3C43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp", "WpfApp\WpfApp.csproj", "{05CEE88E-804A-43FD-9E25-523925CC26DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{AFC1DBCE-FF3A-4ED3-9B0D-74863E1B3C43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFC1DBCE-FF3A-4ED3-9B0D-74863E1B3C43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFC1DBCE-FF3A-4ED3-9B0D-74863E1B3C43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05CEE88E-804A-43FD-9E25-523925CC26DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05CEE88E-804A-43FD-9E25-523925CC26DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05CEE88E-804A-43FD-9E25-523925CC26DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05CEE88E-804A-43FD-9E25-523925CC26DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
