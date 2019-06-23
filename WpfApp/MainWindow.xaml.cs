@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,7 +23,7 @@ namespace WpfApp
             if (textBox == null) return;
             string text = textBox.Text;
 
-            if (text != "" && !int.TryParse(text, out int value))
+            if (!int.TryParse(text, out int value))
             {
                 textBox.Background = Brushes.Red;
                 textBoxsStatus[ Int32.Parse(textBox.Uid) ] = false;
@@ -45,7 +46,13 @@ namespace WpfApp
 
         private void ButtonCalculate_Click(object sender, RoutedEventArgs e)
         {
-        
+            Cube A = new Cube(new Coordinate(int.Parse(X1.Text), int.Parse(Y1.Text), int.Parse(Z1.Text))
+                , int.Parse(H1.Text) );
+            Cube B = new Cube(new Coordinate(int.Parse(X2.Text), int.Parse(Y2.Text), int.Parse(Z2.Text))
+                , int.Parse(H2.Text));
+            CollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
+            float colidedVolume = calc.CollidedVolume();
+            MessageBox.Show(colidedVolume!=0 ? $"Volumen de Colisión: {colidedVolume}" : "No existe colisión" );
         }
     }
 }
