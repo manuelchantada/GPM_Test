@@ -5,7 +5,7 @@ using Model;
 namespace CollisionCalcTests
 {
     [TestClass]
-    public class CubesFactoryCreatesCubeCollisionCalc
+    public class CollisionCalcFactoryCreatesCubeCollisionCalc
     {
         readonly Cube A = new Cube(new Coordinate(1, 1, 1), 2);
         readonly Cube B = new Cube(new Coordinate(3, 3, 3), 5);
