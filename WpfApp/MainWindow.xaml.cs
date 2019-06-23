@@ -4,6 +4,8 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using WpfApp1;
+
 namespace WpfApp
 {
     /// <summary>
@@ -11,36 +13,29 @@ namespace WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        bool[] textBoxsStatus = { false, false, false, false, false, false, false, false };
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBoxCoord_TextChanged(object sender, TextChangedEventArgs e)
         {
-            TextBox textBox = sender as TextBox;
-            if (textBox == null) return;
-            string text = textBox.Text;
+            if (sender is TextBox textBox)
+            {
+                InputValidator.ValidateCoordinate(textBox);
 
-            if (!int.TryParse(text, out int value))
+                buttonCalculate.IsEnabled = InputValidator.AllInputIsValid();
+            }            
+        }
+
+        private void TextBoxHeight_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox textBox)
             {
-                textBox.Background = Brushes.Red;
-                textBoxsStatus[ Int32.Parse(textBox.Uid) ] = false;
-                //MessageBox.Show("Todos los Valores deben ser enteros");
-            }
-            else
-            {
-                textBoxsStatus[Int32.Parse(textBox.Uid)] = true;
-                textBox.Background = Brushes.Green;
-            }
-            if (!textBoxsStatus.Contains(false))
-            {
-                buttonCalculate.IsEnabled = true;
-            }
-            else
-            {
-                buttonCalculate.IsEnabled = false;
+                InputValidator.ValidateHeight(textBox);
+
+                buttonCalculate.IsEnabled = InputValidator.AllInputIsValid();
             }
         }
 
@@ -52,7 +47,9 @@ namespace WpfApp
                 , int.Parse(H2.Text));
             ICollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
             float colidedVolume = calc.CollidedVolume();
-            MessageBox.Show(colidedVolume!=0 ? $"Volumen de Colisión: {colidedVolume}" : "No existe colisión" );
+            Messages.ShowResultVolumeMessage(colidedVolume);
         }
+
+
     }
 }
