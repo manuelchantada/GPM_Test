@@ -12,48 +12,38 @@ namespace Model
             X = x;
             Z = z;
         }
-        public override bool Equals(object obj)
-        {
-            return obj is Coordinate coordinate &&
-                   X == coordinate.X &&
-                   Y == coordinate.Y &&
-                   Z == coordinate.Z;
-        }
-
+        //Given a seed Coordinate, returns A Coordinate with offset x y z
         public static Coordinate CreateOffsetCoordinate(Coordinate seed, float x, float y, float z)
         {
             return new Coordinate(seed.X + x, seed.Y + y, seed.Z + z);
         }
 
-        public static bool operator !=(Coordinate A, Coordinate B)
-        {
-            return !A.Equals(B);
-        }
-        public static bool operator ==(Coordinate A, Coordinate B)
-        {
-            return A.Equals(B);
-        }
-
+        //Given two coordinates (a, b) returns the min X coordinate of both
         public static float MinXof(Coordinate a, Coordinate b)
         {
             return a.X <= b.X ? a.X : b.X;
         }
+        //Given two coordinates (a, b) returns the max X coordinate of both
         public static float MaxXof(Coordinate a, Coordinate b)
         {
             return a.X >= b.X ? a.X : b.X;
         }
+        //Given two coordinates (a, b) returns the min y coordinate of both
         public static float MinYof(Coordinate a, Coordinate b)
         {
             return a.Y <= b.Y ? a.Y : b.Y;
         }
+        //Given two coordinates (a, b) returns the max Y coordinate of both
         public static float MaxYof(Coordinate a, Coordinate b)
         {
             return a.Y >= b.Y ? a.Y : b.Y;
         }
+        //Given two coordinates (a, b) returns the min Z coordinate of both
         public static float MinZof(Coordinate a, Coordinate b)
         {
             return a.Z <= b.Z ? a.Z : b.Z;
         }
+        //Given two coordinates (a, b) returns the max Z coordinate of both
         public static float MaxZof(Coordinate a, Coordinate b)
         {
             return a.Z >= b.Z ? a.Z : b.Z;

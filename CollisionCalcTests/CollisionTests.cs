@@ -31,7 +31,7 @@ namespace CollisionCalcTests
             string testName = $"{a.ToString()} {b.ToString()} {c.ToString()} {test}";
             Cube A = new Cube(new Coordinate(x, y, z), height);
             Cube B = new Cube(new Coordinate((int)a, (int)b, (int)c), height2);
-            CollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
+            ICollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
             float colidedVolume = calc.CollidedVolume();
             Assert.AreEqual(expectedVolume, colidedVolume, testName);
         }
@@ -49,7 +49,7 @@ namespace CollisionCalcTests
             string testName = $"{a.ToString()} {b.ToString()} {c.ToString()} {test}";
             Cube A = new Cube(new Coordinate(x, y, z), height);
             Cube B = new Cube(new Coordinate((int)a, (int)b, (int)c), height2);
-            CollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
+            ICollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
             float colidedVolume = calc.CollidedVolume();
             Assert.AreEqual(expectedVolume, colidedVolume, testName);
         }
@@ -73,7 +73,7 @@ namespace CollisionCalcTests
             string testName = $"{a.ToString()} {b.ToString()} {c.ToString()} {test}";
             Cube A = new Cube(new Coordinate(x, y, z), height);
             Cube B = new Cube(new Coordinate((int)a, (int)b, (int)c), height2);
-            CollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
+            ICollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
             float colidedVolume = calc.CollidedVolume();
             Assert.AreEqual(expectedVolume, colidedVolume, testName);
         }
@@ -91,7 +91,7 @@ namespace CollisionCalcTests
             string testName = $"{a.ToString()} {b.ToString()} {c.ToString()} {test}";
             Cube A = new Cube(new Coordinate(x, y, z), height);
             Cube B = new Cube(new Coordinate((int)a, (int)b, (int)c), height2);
-            CollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
+            ICollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
             float colidedVolume = calc.CollidedVolume();
             Assert.AreEqual(expectedVolume, colidedVolume, testName);
         }
@@ -108,7 +108,7 @@ namespace CollisionCalcTests
             string testName = $"{a.ToString()} {b.ToString()} {c.ToString()} {test}";
             Cube A = new Cube(new Coordinate(x, y, z), height);
             Cube B = new Cube(new Coordinate((int)a, (int)b, (int)c), height2);
-            CollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
+            ICollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
             float colidedVolume = calc.CollidedVolume();
             Assert.AreEqual(expectedVolume, colidedVolume, testName);
         }
@@ -126,7 +126,7 @@ namespace CollisionCalcTests
             string testName = $"{a.ToString()} {b.ToString()} {c.ToString()} {test}";
             Cube A = new Cube(new Coordinate(x, y, z), height);
             Cube B = new Cube(new Coordinate((int)a, (int)b, (int)c), height2);
-            CollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
+            ICollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
             float colidedVolume = calc.CollidedVolume();
             Assert.AreEqual(expectedVolume, colidedVolume, testName);
         }
@@ -138,7 +138,7 @@ namespace CollisionCalcTests
             string testName = $"{a.ToString()} {b.ToString()} {c.ToString()} {test}";
             Cube A = new Cube(new Coordinate(x, y, z), height);
             Cube B = new Cube(new Coordinate((int)a, (int)b, (int)c), height2);
-            CollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
+            ICollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
             float colidedVolume = calc.CollidedVolume();
             Assert.AreEqual(expectedVolume, colidedVolume, testName);
         }
@@ -163,7 +163,7 @@ namespace CollisionCalcTests
             string testName = $"{a.ToString()} {b.ToString()} {c.ToString()} {test}";
             Cube A = new Cube(new Coordinate(x, y, z), height);
             Cube B = new Cube(new Coordinate((int)a, (int)b, (int)c), height2);
-            CollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
+            ICollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
             float colidedVolume = calc.CollidedVolume();
             Assert.AreEqual(expectedVolume, colidedVolume, testName);
         }
@@ -181,7 +181,7 @@ namespace CollisionCalcTests
             string testName = $"{a.ToString()} {b.ToString()} {c.ToString()} {test}";
             Cube A = new Cube(new Coordinate(x, y, z), height);
             Cube B = new Cube(new Coordinate((int)a, (int)b, (int)c), height2);
-            CollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
+            ICollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
             float colidedVolume = calc.CollidedVolume();
             Assert.AreEqual(expectedVolume, colidedVolume, testName);
         }
@@ -194,7 +194,7 @@ namespace CollisionCalcTests
             string testName = $"{a.ToString()} {b.ToString()} {c.ToString()} {test}";
             Cube A = new Cube(new Coordinate(x, y, z), height);
             Cube B = new Cube(new Coordinate((int)a, (int)b, (int)c), height2);
-            CollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
+            ICollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
             float colidedVolume = calc.CollidedVolume();
             Assert.AreEqual(expectedVolume, colidedVolume, testName);
         }

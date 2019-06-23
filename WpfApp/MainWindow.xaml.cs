@@ -50,7 +50,7 @@ namespace WpfApp
                 , int.Parse(H1.Text) );
             Cube B = new Cube(new Coordinate(int.Parse(X2.Text), int.Parse(Y2.Text), int.Parse(Z2.Text))
                 , int.Parse(H2.Text));
-            CollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
+            ICollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
             float colidedVolume = calc.CollidedVolume();
             MessageBox.Show(colidedVolume!=0 ? $"Volumen de Colisión: {colidedVolume}" : "No existe colisión" );
         }

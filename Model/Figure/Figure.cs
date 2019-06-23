@@ -3,12 +3,9 @@ namespace Model
 {
     public class Figure : ICollidable
     {
+        //Any figure is defined by its relevant Nodes
         protected Coordinate[] Nodes;
-        public enum Edges
-        {
-            LeftBottomBack,
-            RightTopFront
-        }
+
         public Coordinate[] GetNodes()
         {
             return Nodes;

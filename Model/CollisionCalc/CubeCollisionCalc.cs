@@ -2,7 +2,7 @@
 
 namespace Model
 {
-    public class CubeCollisionCalc : CollisionCalc
+    public class CubeCollisionCalc : ICollisionCalc
     {
         protected Cube A;
         protected Cube B;
@@ -12,6 +12,7 @@ namespace Model
             B = b;
         }
 
+        //Returns the colliding volume of the cubes A & B
         public float CollidedVolume()
         {
             Coordinate ALBB = A.GetNodes()[(int)Cube.Edges.LeftBottomBack];

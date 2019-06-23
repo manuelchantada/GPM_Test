@@ -13,7 +13,7 @@ namespace CollisionCalcTests
         [TestMethod]
         public void GivenTwoCubesFactoryCreatesCubeCollisionCalc()
         {
-            CollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
+            ICollisionCalc calc = CollisionCalcFactory.CreateCollisionCalc(A, B);
             Assert.IsNotNull(calc);
             Assert.IsInstanceOfType(calc, typeof(CubeCollisionCalc) );
         }
